@@ -72,4 +72,68 @@
     - 객체 모델이 적용, 데이터 모델을 그대로 응용프로그램에 적용
 - 관계객체형 데이터베이스(ORDB = Object Relation Database)
     - 관계형 + 객체지향
-- 
+
+> 관계형 데이터베이스는 텍스트 기반.
+하지만 동영상 같은 파일들은 바이너리 언어 기반이고 SQL로 처리하는 데 불편함이 있었다.
+
+> 그래서 나온 것이 객체지향 데이터베이스. 
+- NoSQL 
+    - 대용량 데이터, 비정형 데이터의 웹 서비스와 SNS, 클라우드 컴퓨팅의 확대 보급과 대중화로 최근 주목받고 있는 데이터베이스 기술.
+    - 실시간(스마트폰 등)으로 처리되는 데이터, 시시각각 변화하는 데이터들을 관계형 데이터베이스에 정리해 집어넣는 것은 쉽지 않은 일. 
+    - 때문에 정리하지 않고, 형태 구현도 하지 않고 즉시 넣었다, 추출 혹은 사용을 해보자는 목적으로 만들어진 데이터베이스 형태. SQL 없이(No) 사용해보자. 
+    - 상용 데이터베이스에서도 NoSQL의 장점을 받아들이고 있다.
+
+### 관계형 DBMS란?
+#### 관계형 DBSM
+- Relational DBMS, RDBMS
+- 현재 사용되는 DBMS 중 가장 많이 사용.
+- 네 가지 기능 지원.
+- 데이터 무결성
+    - 신뢰성 있는 데이터를 처리해야 함. 
+- 데이터 독립성
+    - 다른 사람이 동시에 입력해도, 내가 입력한 데이터와는 분리되어야 함. 
+- 보안
+    - 누구나 접근할 수 있지만, 동시에 접근권한으로 제어할 수 있어야 함. 
+- 데이터 중복 최소화
+    - 중복 처리가 일어나면 안된다.
+- SQL 언어 (Structured Query Language )
+
+## MySQL 소개
+### MySQL
+- Open source DB로 탄생
+- LAMP/SAMP stack 기반으로 사용층 확보. 
+    - Linux/Apache/MySQL/PHP
+- 상용 DB대비 DB관리와 TCO에 유리.
+- 최상의 신뢰성과 보안성 제공하는 오픈 소스 데이터베이스
+- Stored procedure, Trigger, View 등 RDBMS로서의 기본 기능에 충실.
+    - 상용 DB에 버금가는 기능 지원.
+- Pluggable Storage Engine 제공.
+- 다양한 Third 파트 엔진 지원
+- 다양한 관리자용 GUI 툴
+    - Administration, Migration, Backup, Workbench, Query Browser 등
+- 중앙 집중 관리
+    - 보안, 스키마 관리, Replication, 성능 모니터링
+- 다양한 Platform 지원
+    - 가격 대비 최대 성능 효과의 TCO 절감 DBMS
+- 대부분의 프로그래밍 언어에서 모두 사용할 수 있는 API 제공.
+
+> TCO?
+TCO는 총소유비용을 의미한다. 데이터 스토리지의 경우, 조직은 IT 인프라를 구매, 설치, 실행 및 유지 관리하는 과정에서 발생하는 모든 비용을 평가해야 한다. 총소유비용(TCO)에는 하드웨어 및 소프트웨어, 관리 및 실무, 스토리지 용량 및 컴퓨트 리소스 그리고 다운타임 중에 발생하는 모든 기회 비용이 포함될 수 있다.
+
+#### 라이센스
+- Community Adition 사용해야 함. 
+- Maria DB
+#### MySQL Commynity Edition
+- MySQL Server + GUI Tools + API
+
+#### MySQL 8 특징
+- SQL, JSON 및 GIS 와 같은 분야의 요청 새로운 기능 제공.
+- Emojis를 저장할 수 있는 UTF8MB4가 default characher set
+    - 유니코드를 지원했었으나, 이모지 등을 포함한 문자 셋 지원. 
+- NoSQL Document Store  
+    - 기존 SQL 관계형 + NoSQL 문서 데이터베이스 가능
+- SQL WINDOW 함수, Common Table, NOWAIT 및 SKIP LOCKED, 내림차순 인덱스, Grouping, 정규식 등..
+- JSON Extended 구문, 새로운 기능, 향상된 정렬 및 부분 업데이트, JSON TABLE 함수 사용하면 JSON 데이터 용 SQL machinery 사용 가능.
+- 8 이전 버전에 비해 보안적인 측면에서 많이 강화됨.
+
+
