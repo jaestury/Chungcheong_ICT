@@ -134,11 +134,11 @@ END
 SELECT first_name, salary
     FROM employees
     ORDER BY salary DESC
-    LIMIT 3;
+    LIMIT 3;               // 첫 번째 행부터 3개.
 ```
 ```
 SELECT first_name, salary
     FROM employees
     ORDER BY salary DESC
-    LIMIT 10, 3;
+    LIMIT 10, 3;            // 10번째 행부터 3개.
 ```
