@@ -181,3 +181,46 @@ FROM 테이블이름
 - 여러 줄 주석은 `/* */`로 둘러쌀 수 있음.
     - 프로그램에 반영하고 싶지 않은 설명들은 `/* */`에 넣자.
 - 한 줄 주석은 `--` 다음에 작성. 
+
+
+## 학습 목표
+- DML 명령으로 레코드를 관리할 수 있다.
+- DDL 명령으로 스키마/테이블 관리를 할 수 있다.
+- INSERT, UPDATE, DELETE
+- 아주 조심해야하는 명령어들. 
+
+## INSERT, UPDATE, DELETE
+### INSERT 문은 새로운 레코드(튜플)을 삽입하는 명령
+```
+INSERT INTO 테이블이름[속성리스트]
+VALUES (값1, 값2, 값3, ...);
+```
+
+### UPDATE 문은 특정 속성 값을 수정하는 명령
+```
+UPDATE 테이블 이름
+SET     [속성이름1=값1, 속성이름2=값2, 속성이름3=값3, ...]
+[WHERE <검색조건>;]      조건 구문을 활용할 수도 있다.
+```
+#### MySQL8 이후
+- Unsafe Update
+- Error Code 1175.
+보안문제로 Unsafe한 Update를 방지하고자, 기본으로 지정되어 있다. 
+- 제약조건이 없다면 테이블의 모든 데이터를 수정, 삭제할 수도 있다. 
+- `SQL_SAFE_UPDATES`를 활성화하고 Update를 수행하자. 
+    - MySQL의 글로벌 환경변수 `SET SQL_SAFE_UPDATES`를 통해 해지 가능.
+    - `my.ini`, 환경설정 통해서도 가능
+- 예시 : Customer 테이블에서 고객번호 5인 고객의 주소를 '대한민국 부산'으로 변경
+```
+SET SQL_SAFE_UPDATE=0;   // Safe Updates 옵션 해제.
+UPDATE Customer
+SET    address='대한민국 부산'
+WHERE  custid=5;          // 제약조건문이 없다면, 테이블의 모든 데이터가 수정되는 사고가 생길 수 있다. 
+```
+
+## Schema 와 Table 구문
+- 다른 스키마 안의 테이블 조회
+### 스키마 건너 SQL 명령을 수행할 수 있음. 
+- 대부분의 SQL 구분은 Schema를 `.`(dot)로 지정해 작성할 수 있다.
+    - 테이블 이름을 `Schema.Table_name` 형식으로 지시.
+    - bookstore.book, lecture.pet
