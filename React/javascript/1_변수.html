@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수</title>
+    <!-- 스크립트 코드 작성 -->
+    <!-- 주석 : 코드 실행이라 관련 없음. 설명 붙이고 싶을 때 사용하면 된다 -->
+  </head>
+  <body>
+    안녕하세요
+    <script>
+      //var value1 = 4;
+      //var value1 = 5;
+      //value1 = 7;
+      //        console.log(value1);
+
+      let value1 = 20;
+      // Uncaught SyntaxError: Identifier 'value1' has already been declared
+      //        let value1 = 30;  // Cannot redeclare block-scoped variable 'value1'.
+      value1 = 5;
+      console.log(value1);
+
+      // 상수 선언
+      const value2 = 3; // 선언, 할당
+      //        const value2 = 4;  // 재선언 불가.
+      //        value2 = 5;    // 재할당 불가.
+    </script>
+  </body>
+</html>

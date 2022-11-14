@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+  </head>
+  <body>
+    <script>
+      let a = 4;
+      b = 5;
+      // 연산자 : 산술, 논리, 비교 등..
+      // 산술 연산자 : + - * / %
+      console.log("a + b = ", a + b);
+      console.log("a - b = ", a - b);
+      console.log("a * b = ", a * b);
+      console.log("a / b = ", a / b); // 소수점까지 연산해준다.
+      console.log("a % b = ", a % b); // 나머지 구하는 것.
+      console.log(2 ** 3); // 거듭제곱 : 2의 3제곱.
+
+      // 단항 연산자  ++ --
+      console.log("a++ = ", a++); // a= a+1  == a++
+      console.log("a = ", a);
+      console.log("b--", b--, b); // b= b-1  == b--
+
+      // 비교 연산자 : <, >, <=, >=, ==(동등), ===(일치), !=(부등), !==(불일치)
+      // 결과값이 true, false 로 반환된다.
+      console.log("a == b", a == b);
+      console.log("a === b", a === b);
+
+      console.log("a != b", a != b);
+      console.log("a !== b", a !== b);
+
+      // 왜 3개짜리 (===)를 만들었을까?
+      let c = "4"; // string
+      console.log("b == c", b == c); // 4 == "4"  ?    들어있는 값, 숫자 등이 같으면 같음.
+      console.log("b === c", b === c); // 4 === "4"  ?  값에 더해서 타입도 같은지 봄. 타입까지 비교하려면 === 을 사용해야 함.
+
+      console.log("b != c", b != c);
+      console.log("c !== b", c !== b);
+
+      // 연결 연산자 : +
+      let d = "3";
+      console.log("c + d = ", c + d); // "4" + "3" = "43"
+      console.log("b + c = ", b + c); // "4" + "3" = "44"
+      // 한 쪽이라도 스트링인데 '+'를 사용한다면, 숫자를 단순 연결해준다.
+      console.log("b / c = ", b / c); // 더하기일때만 연락으로 들어가기 때문에, 값 1이 출력된다.
+      // - * / 는 string이 포함되어도 연산을 해준다.
+
+      // 논리 연산자 : &&(and), ||(or) = 결과가 true, faulse로만 나오는 경우 사용.
+      // &&(and)는 둘다 참일때만 참, ||(or)는 한쪽만 참이어도 참.
+      console.log(a == b && a == c);
+    </script>
+  </body>
+</html>

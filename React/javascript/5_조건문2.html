@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      // 조건문 : if, switch(if~else if~else 구문 대체)
+
+      // 사용자에게 국어, 영어, 수학 점수를 입력받은 후 평균을 구하여 A~E 등급으로 출력
+      // 90이상 A, 80이상 B, 70 C, 60 D, 나머지 E
+      let num1 = Number(prompt("국어 점수를 입력해주세요."));
+      let num2 = Number(prompt("영어 점수를 입력해주세요."));
+      let num3 = Number(prompt("수학 점수를 입력해주세요."));
+      console.log(num1, num2, num3);
+
+      // 평균 구하기
+      let avg = (num1 + num2 + num3) / 3;
+      console.log(avg);
+
+      // Number("53") => 53    Number(53.2) => 53.2
+      // parseInt("53") => 53    parseInt(53.2) => 53
+      // string 숫자를 숫자 형태로 리턴. parseInt의 경우 소수점 아래의 값을 버린다.
+
+      // avg 88/10 = 8.8. parseInt를 사용하면 8로 반환.
+      switch (parseInt(avg / 10)) {
+        case 10:
+        case 9:
+          grade = "A";
+          break;
+        case 8:
+          grade = "B";
+          break;
+        case 7:
+          grade = "C";
+          break;
+        case 6:
+          grade = "D";
+          break;
+        case 5:
+          grade = "E";
+          break;
+      }
+      // switch 구문은 { } 블럭을 사용하지 않는다. 대신, break를 사용해서 코드 실행을 멈춘다.
+      // 조건을 만족하면 break 에 걸려 조건문 실행이 정지되고, 값을 반환한다. switch문에는 절대 절대 break를 사용해야한다.
+      alert("등급 " + grade);
+    </script>
+  </body>
+</html>

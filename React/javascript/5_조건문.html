@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      // 조건문의 형태
+      // if(조건){조건이 만족하면 실행할 문장들....}
+      // else{조건이 만족하지 않으면 실행할 문장들...}
+      // if 만 써도, 같이 써도 무방. 중첩도 가능...
+
+      // 현재 시간이 오전인지 오후인지 판단. => 조건문.
+
+      // 현재시간 구하기
+      let date = new Date();
+      console.log(date); // Mon Nov 14 2022 13:02:37 GMT+0900 (한국 표준시)
+
+      // 시간만 추출
+      let hour = date.getHours();
+      console.log(hour);
+
+      // 12보다 작으면 오전, 크면 오후.
+      if (hour < 12) {
+        console.log("오전");
+      } else {
+        console.log("오후");
+      }
+
+      // 사용자에게 숫자를 입력받은 후 입력받은 숫자가 양수, 음수, 0 인지 판단.
+
+      // 1) 입력받기 - prompt()
+      // 입력받는 값은 무조건 string 이다 : "353"
+      // Number("353") => 353
+      // Number 함수를 사용해서 타입을 number로 변환해준다.
+      //      let num1 = Number(prompt("숫자를 입력해 주세요."));
+      //    console.log(num1);
+
+      //      // 2) 조건문 설계하기
+      //      if (num1 > 0) {
+      //        console.log("양수");
+      //      } else if (num1 === 0) {
+      //        // 입력받는 값이 string이지만, 비교하는 값은 0은 number이기 때문에 일치하지 않는다.
+      //        console.log("0 이다");
+      //      } else {
+      //        console.log("음수");
+      //      }
+
+      // 사용자에게 숫자를 입력받은 후 입력받은 숫자가 양수, 음수, 0 인지 판단.
+      //    let num1 = Number(prompt("숫자를 입력해 주세요"));
+      // 숫자가 짝수 > 숫자를 2로 나눈 나머지가 0인것.
+      //  if (num1 % 2 == 0) {
+      //   console.log("짝수입니다.");
+      // } else {
+      //  console.log("홀수입니다.");
+      // }
+
+      // 사용자에게 국어, 영어, 수학 점수를 입력받은 후 평균을 구하여 A~E 등급으로 출력
+      // 90이상 A, 80이상 B, 70 C, 60 D, 나머지 E
+      //     let num1 = Number(prompt("국어 점수를 입력해주세요."));
+      //   let num2 = Number(prompt("영어 점수를 입력해주세요."));
+      //      let num3 = Number(prompt("수학 점수를 입력해주세요."));
+      //    console.log(num1, num2, num3);
+
+      // 평균 구하기
+      //      let avg = (num1 + num2 + num3) / 3;
+      //      console.log(avg);
+
+      // 조건문 작성
+      //      let grade = ""; // 변수 선언 후 "" 빈 공백을 할당.
+      //     if (avg >= 90) {
+      //      grade = "A";
+      //   } else if (avg >= 80) {
+      //    grade = "B";
+      //    } else if (avg >= 70) {
+      //     grade = "C";
+      //      } else if (avg >= 60) {
+      //        grade = "D";
+      //     } else {
+      //      grade = "E";
+      //   }
+      // 한번에 하나만 걸린다. A와 B 조건을 동시에 만족시키는 것은 불가. 위부터 조건을 확인해서 만족하는 순간 조건문 수행을 종료한다.
+      //   alert("등급 " + grade);
+
+      //confirm();   확인(true)/취소(false) 버튼
+      let result = confirm("약관에 동의하십니까?");
+      console.log(result);
+
+      // if~else 사용해서 확인을 누르면 확인 누르면 alert("확인을 누르셨습니다.") 취소는 취소를 눌렀~~
+      if (result) {
+        // result == true 라고 물어보지 않아도 된다. result 가 true 라는 것이 전제이기 때문.
+        alert("확인을 누르셨습니다.");
+      } else {
+        alert("취소를 누르셨습니다.");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수_scope</title>
+    <!-- 스크립트 코드 작성 -->
+    <!-- 주석 : 코드 실행이라 관련 없음. 설명 붙이고 싶을 때 사용하면 된다 -->
+  </head>
+  <body>
+    안녕하세요
+    <script>
+      // let : block scope 안에서 재선언 불가, 재할당 가능.
+      // block scope : { } 등..
+      // 괄호 등으로 블록을 생성할 수 있고, 블록-블록 사이의 간섭은 (일반적으로)불가능하다.
+
+      const value3 = 10;
+      {
+        let value3 = 4;
+        console.log(value3);
+      }
+      <!-- let value3 = 5; -->
+      console.log(value3); // Uncaught ReferenceError: value3 is not defined
+    </script>
+  </body>
+</html>

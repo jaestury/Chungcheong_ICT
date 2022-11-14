@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자료형</title>
+  </head>
+  <body>
+    <script>
+      // 자료형, 타입
+      // 처음에는 타입이 없다가, 할당 후 타입이 생긴다.
+      // 타입은 바뀔 수 있음. > 재할당이 가능하니까.
+      // javascript 는 타입에 대해 유연한 편이다.
+
+      let a, b, c, d, e, f;
+      console.log("a 타입?", typeof a); // undefined - 선언은 했으나 할당이 안된 상황.
+
+      // 할당
+      a = "안녕하세요";
+      b = 3.141592;
+      c = new Date(); // 객체
+      d = 3;
+      e = { name: "hong", age: 20 }; // 객체
+      f = null; // 객체
+
+      console.log("a 타입?", typeof a); // string ("", ''로 값 할당 시 string. 문자)
+      console.log("b 타입?", typeof b); // number
+      console.log("c 타입?", typeof c); // object (객체 삽입 시 object 타입이라 알려줌. )
+      console.log("d 타입?", typeof d); // number
+      console.log("e 타입?", typeof e); // object
+      console.log("f 타입?", typeof f); // object
+
+      a = 55;
+      console.log("재할당 후 a 타입?", typeof a); // object
+    </script>
+  </body>
+</html>
