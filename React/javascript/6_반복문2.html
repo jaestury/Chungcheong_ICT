@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // while. for문과 형태만 다를 뿐 for 문 짜깁기로 만들 수 있음.
+      /*
+      let index = 1;  // 변수 초기화. 
+      while (index < 11) {  // 반복 종료 조건. 
+        console.log(index);  // 반복해 수행할 코드
+        index++;  // 증감은 루프 안에
+      }
+      */
+      let index = 1;
+      while (index < 101) {
+        if (index % 2 == 1) {
+          // 조건문 혼합.
+          // 반복적으로 수행할 코드
+          console.log(index);
+        }
+        index++;
+      }
+
+      // 배열 : 자료를 한꺼번에 담아놓는 방법
+      const fruits = [
+        "사과",
+        "망고",
+        "바나나",
+        "수박",
+        "자두",
+        "포도",
+        "토마토",
+        "멜론",
+      ];
+
+      let idx = 0;
+      while (idx < fruits.length) {
+        console.log(fruits[idx]);
+        idx++;
+      }
+    </script>
+  </body>
+</html>
