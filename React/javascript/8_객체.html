@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 객체. Object
+      // key: value, key: value, ....
+      let person = {
+        name: ["bob", "smith"],
+        age: 32,
+        gender: "male",
+        interests: ["music", "skiing"],
+        greeting: function () {
+          alert("Hi!! I`m " + this.name[1] + ".");
+        },
+      };
+
+      console.log(person);
+      console.log(person.name[1]);
+      console.log(person.age);
+      console.log(person.gender);
+      console.log(person.interests[0]);
+      console.log(person.greeting()); // 괄호 붙여야 alert창 출력된다. 메서드는 아규먼트를 대입해줘야 작동하기 때문. 메서드는 뒤에 꼭 ()를 붙이자!
+
+      let student = {
+        // JSON 형태로 선언.
+        name: "헬렌",
+        kor: 92,
+        eng: 88,
+        math: 96,
+        sci: 78,
+      };
+
+      let teacher = {
+        tname: "설리번",
+        age: 50,
+      };
+
+      let obj = { ...student, ...teacher };
+      console.log(obj);
+
+      // 기존 객체를 수정하고 싶을 때
+      let person1 = {
+        name: {
+          firstName: "bob",
+          lastName: "smith",
+        },
+        age: 32,
+        gender: "male",
+        interests: ["music", "skiing"],
+        greeting: function () {
+          alert("Hi!! I`m " + this.name[0] + ".");
+        },
+      };
+      // 조회
+      console.log(person1);
+      console.log(person1.name.firstName);
+      console.log(person1["name"]["firstName"]);
+
+      // 수정
+      person1.name.firstName = "Chris";
+      person1["eyes"] = "hazel";
+      person1.farewall = function () {
+        alert("Bye");
+      };
+      console.log(person1);
+    </script>
+  </body>
+</html>
