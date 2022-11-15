@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 메서드 : 객체에 포함된 함수.
+
+      // 함수 : 기능을 가지고 있는 코드 블럭. 단독으로 실행.
+      // alert() : 경고창 띄우는 함수. prompt() : 입력 받는 함수...
+
+      // 사용자 정의 함수 만들기 - 개발자가 정의한 함수.
+
+      // 1. 전통적 방식 - 호이스팅 가능 : 함수를 끌어올려 호출하는 것이 가능함.
+      // 전통적 방식에서는 먼저 함수를 호출하고, 나중에 함수를 정의하는 것이 가능하다.
+
+      //   function 함수명(인자1, 인자2, 인자3, ../){  // 함수는 무조건 괄호를 갖고 있어야한다. 인자는 필수 요소는 아니다.
+      //     // 함수 안에서 해야 하는 작업들 코드 작성
+      //   }
+
+      // 함수 호출
+      let result = getArea(5, 6);
+      console.log(result);
+
+      // 면적을 구하는 함수 구현.
+      function getArea(width, height) {
+        return width * height;
+        // 함수 정의.
+      }
+
+      // 3. 함수 표현식 - 익명함수를 변수에 담는 방식.
+      // 호이스팅 불가. 함수를 먼저 호출하고, 나중에 선언하는 방식 불가.
+      // 개발자 오류를 예방하는 측면에서는 호이스팅이 불가한 편이 더 좋다.
+      const area = function (width, height) {
+        return width * height;
+      };
+      console.log(area(3, 4));
+
+      // 4. 화살표 함수 - Arrow Function
+      const area2 = (width, height) => {
+        // 'function' 빼고 '=>' 넣기
+        return width * height;
+      };
+      console.log(area2(10, 20));
+
+      // 화살표 함수 더 간단하게 만들기
+      // 함수 안에서 실행할 구문이 한줄이라면 { }와 return 생략 가능.
+      const area3 = (width, height) => width * height;
+      // { }와 return 빼기
+      console.log(area3(4, 20));
+
+      // 1. 전통적인 방식
+      function multiple(num1) {
+        // num1*num1. 제곱하기.
+        return num1 * num1;
+      }
+
+      console.log(multiple(6));
+
+      // 2. 화살표 함수
+      const multiple2 = (num1) => {
+        return num1 * num1;
+      };
+
+      console.log(multiple2(9));
+
+      const multiple3 = (num1) => num1 * num1;
+
+      console.log(multiple3(8));
+
+      // 2개의 숫자를 받아 더하는 함수.
+      // let num1 = Number(prompt("숫자를 입력해주세요."));
+      // let num2 = Number(prompt("숫자를 입력해주세요."));
+      // console.log(num1, num2);
+      // // 1. 전통적
+      // function add1(num1, num2) {
+      //   return num1 + num2;
+      // }
+
+      // // 2. 함수 표현식 방식
+      // const add2 = function (num1, num2) {
+      //   return num1 + num2;
+      // };
+
+      // // 3. 화살표
+      // const add3 = (num1, num2) => {
+      //   return num1 + num2;
+      // };
+
+      // const add4 = (num1, num2) => num1 + num2;
+
+      // document.write(add1(num1, num2), "<br>");
+      // document.write(add2(num1, num2), "<br>");
+      // document.write(add3(num1, num2), "<br>");
+
+      const array1 = [1, 4, 9, 16];
+
+      array1.forEach(function (item) {
+        console.log(item);
+      });
+
+      array1.forEach((item) => console.log(item));
+
+      // map : 새로운 배열을 리턴. '배열명.map' 형식으로 쓴다.
+      // 기존 배열에서 원소를 갖고 와서 연산을 수행하고, 그 결과값들로 배열을 다시 만든다.
+      const map1 = array1.map((x) => x * 2);
+      console.log(map1);
+
+      const materials = ["Hydrogen", "Helium", "Lithium", "Berullium"];
+      // 배열 안의 문자열의 길이를 새로운 배열로 리턴.
+      // 우선 배열의 문자열의 길이를 구해서 배열로 만들어야 함.
+      materials.forEach(function (item) {
+        console.log(item.length);
+      });
+      console.log(materials.map((item) => item.length)); // map을 이용해서 간단하게 기존 배열의 내용을 조작하고 새로운 배열을 만들며 새 배열의 내용도 설정할 수 있다.
+      console.log(materials);
+    </script>
+  </body>
+</html>

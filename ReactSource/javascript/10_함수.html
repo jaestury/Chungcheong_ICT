@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 메서드 : 객체에 포함된 함수.
+
+      // 함수 : 기능을 가지고 있는 코드 블럭. 단독으로 실행.
+      // alert() : 경고창 띄우는 함수. prompt() : 입력 받는 함수...
+
+      // 사용자 정의 함수 만들기 - 개발자가 정의한 함수.
+
+      // 1. 전통적 방식.
+
+      //   function 함수명(인자1, 인자2, 인자3, ../){  // 함수는 무조건 괄호를 갖고 있어야한다. 인자는 필수 요소는 아니다.
+      //     // 함수 안에서 해야 하는 작업들 코드 작성
+      //   }
+
+      // 면적을 구하는 함수 구현.
+      function getArea(width, height) {
+        return width * height;
+        // 함수 정의.
+      }
+
+      function getArea2(width, height) {
+        console.log(width * height);
+        // 꼭 return이 있을 필요는 없다.
+      }
+
+      // 함수 호출
+      let result = getArea(5, 6);
+      console.log(result);
+
+      // 1. getArea 실행
+      // 2. 5는 width 에, 6은 height 에 삽입되고 연산식을 수행함.
+      // 3. 값이 result에 반환되고, 출력됨.
+
+      getArea2(6, 8);
+
+      function data() {
+        let userName = prompt("이름을 소문자로 입력해주세요");
+        let hp = prompt("전화번호를 입력하세요. ex)010-1234-4567");
+
+        console.log(userName, hp);
+
+        document.write("대문자로 변경 : ", userName.toUpperCase(), "<br>");
+        document.write(
+          "입력 전화번호 : ",
+          hp.replace(hp.substring(4, 8), "####") // substring으로 5번째 자리부터 8번째 자리부터 잘라냄. 그리고 replace로 그 자리에 #### 삽입해준다.
+        );
+      }
+      // data(); // 호출
+
+      // 함수 생성- 2두번째. 익명 함수(함수에 이름이 없는 상황.)
+      // 익명함수 단독으로 쓰지는 못한다.
+      // 이벤트 핸들러와 같이 사용된다.
+      //   function(){
+      //     alert("hello");
+      //   }
+
+      // 3. 함수 표현식 - 익명함수를 변수에 담는 방식.
+      const area = function (width, height) {
+        return width * height;
+      };
+      console.log(area(3, 4));
+    </script>
+  </body>
+</html>
