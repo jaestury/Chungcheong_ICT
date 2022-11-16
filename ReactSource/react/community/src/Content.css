@@ -1,0 +1,11 @@
+.top-nav {
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+
+.article {
+  padding: 5px 0 5px 10px;
+  border-bottom: 1px solid gray;
+}
+/* .~~ 해줘야 된다. '.' 빼먹으면 안됨! */
