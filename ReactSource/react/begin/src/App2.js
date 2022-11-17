@@ -14,7 +14,11 @@ function App2() {
 
   return (
     <>
-      <Header title="Study" name="hong"></Header>
+      <Header
+        title="Study"
+        name="hong"
+        onClick={() => alert("Header 클릭")}
+      ></Header>
       <Nav topics={topics}> </Nav>
       <Article color="blue"></Article>
     </>

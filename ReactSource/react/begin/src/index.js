@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// import Animal from "./Animal";
+import Animal2 from "./Animal2";
+// import Counter from "./Counter";
 // import App2 from "./App2";
 // import Hello from "./Hello";
-import App3 from "./App3";
+// import App2 from "./App2";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // 아래 코드 <React.StrictMode> 때문에 콘솔에 로그가 두번씩 찍히는 것.
   <React.StrictMode>
-    <App3 />
+    <Animal2 />
   </React.StrictMode>
 );
 
