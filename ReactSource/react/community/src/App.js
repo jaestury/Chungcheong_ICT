@@ -1,8 +1,8 @@
-// import "./App.css";
-import Content from "./Content";
+import Content3 from "./Content3";
+import "./App.css";
 
 function App() {
-  return <Content></Content>;
+  return <Content3></Content3>;
 }
 
 export default App;
