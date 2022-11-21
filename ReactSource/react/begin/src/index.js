@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+
 import reportWebVitals from "./reportWebVitals";
-// import App4 from "./App4";
-// import Life from "./Life";
-import Styled from "./Styled";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./Router";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // 아래 코드 <React.StrictMode> 때문에 콘솔에 로그가 두번씩 찍히는 것.
-  // <React.StrictMode>
-  <Styled />
-  // </React.StrictMode>
+  <BrowserRouter>
+    <Router />
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
