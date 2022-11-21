@@ -1,21 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import Animal from "./Animal";
-// import Animal2 from "./Animal2";
-// import Counter from "./Counter";
-// import App2 from "./App2";
-// import Hello from "./Hello";
-// import App2 from "./App2";
 import "./index.css";
-import InputExam2 from "./InputExam2";
 import reportWebVitals from "./reportWebVitals";
+// import App4 from "./App4";
+// import Life from "./Life";
+import Styled from "./Styled";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // 아래 코드 <React.StrictMode> 때문에 콘솔에 로그가 두번씩 찍히는 것.
-  <React.StrictMode>
-    <InputExam2 />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Styled />
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
