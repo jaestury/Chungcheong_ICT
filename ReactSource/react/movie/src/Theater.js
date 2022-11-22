@@ -1,7 +1,15 @@
+import { Button, Container } from "react-bootstrap";
+
 function Rank() {
   return (
     <>
-      <h1>극장 정보</h1>
+      <Container className="mt-5">
+        <h1>영화관 정보</h1>
+        <br />
+        <Button variant="outline-primary" className="mb-3">
+          영화관 찾기
+        </Button>
+      </Container>
     </>
   );
 }
