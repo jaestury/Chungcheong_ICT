@@ -18,6 +18,9 @@ import { useState } from "react";
 // 라우터 작업. 링크걸었을 때 정보 유지시켜주는 기능.
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Detail from "./components/Detail";
+import Event from "./components/Event";
+import One from "./components/One";
+import Two from "./components/Two";
 
 function App() {
   // 최초 데이터 세팅.
@@ -84,12 +87,14 @@ function App() {
                 <NavDropdown.Item href="/exer">운동화</NavDropdown.Item>
                 <NavDropdown.Item href="/heel">구두</NavDropdown.Item>
                 <NavDropdown.Item href="/boot">부츠/워커</NavDropdown.Item>
+                <NavDropdown.Item href="/event">이벤트</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#special">Special</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/exer">운동화</Nav.Link>
               <Nav.Link href="/heel">구두</Nav.Link>
               <Nav.Link href="/boot">부츠/워커</Nav.Link>
+              <Nav.Link href="/event">이벤트</Nav.Link>
               <Nav.Link href="/cart">
                 <span className="material-symbols-outlined">shopping_cart</span>
               </Nav.Link>
@@ -114,6 +119,15 @@ function App() {
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         {/* path가 변화하는 경우, "/detail/:변수" 형식으로 작성해준다.
         상품상세 페이지가 출력된다. */}
+
+        {/* 라우터 안에 라우터가 들어갈 수 있다.
+        페이지 이동이 메인 페이지에서 내부 페이지, 또 속 페이지로 들어가는 경우가 있기 때문에 
+        라우터 안에 라우터 페이지를 넣는 형태를 활용할 수 있다. */}
+        {/* 서로 다른 공통의 디자인을 갖고 있을 때는 라우터 페이지 속 라우터 페이지 형태의 구성이 더 좋다. */}
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<One />} />
+          <Route path="two" element={<Two />} />
+        </Route>
       </Routes>
       <Footer></Footer>
     </div>
