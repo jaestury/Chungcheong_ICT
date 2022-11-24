@@ -1,4 +1,4 @@
-// 상단바 지정. 로고+메뉴 등
+// 페이지의 전체적 형태
 
 import {
   Container,
@@ -21,9 +21,16 @@ import Detail from "./components/Detail";
 import Event from "./components/Event";
 import One from "./components/One";
 import Two from "./components/Two";
+import Cart from "./components/Cart";
 
 function App() {
+  // navigate 사용을 위한 변수 선언
+  let navigate = useNavigate();
+
   // 최초 데이터 세팅.
+  // 화면에 변화를 주는 변수는 useState로 선언해야한다. re렌더링 시 반영된다.
+  // 일반변수, useState로 만드는 변수, useRef로 만드는 변수 3가지를 적절히 이용해서 보기 좋은 웹페이지를 만들자.
+  // 데이터가 추가되고 re렌더링 시 화면에 반영되어야 하기 때문에 useState 사용.
   const [shoes, setShoes] = useState([
     {
       id: 0,
@@ -64,7 +71,15 @@ function App() {
       <Container className="my-2" fluid>
         <Row className="text-center">
           <Col>
-            <Navbar.Brand href="/">
+            {/* 로고에도 useNavigate를 사용해서 데이터 유지하면서 움직여보자. */}
+            <Navbar.Brand
+              href="#"
+              onClick={(e) => {
+                // a 태그의 기본적 동작. 이동을 하게 되어있다. 그것을 막기 위해 사용
+                e.preventDefault(); // 기본 클릭 동작 방지.
+                navigate("/");
+              }}
+            >
               <img
                 src="/logo-no-background.png"
                 alt="로고"
@@ -87,15 +102,37 @@ function App() {
                 <NavDropdown.Item href="/exer">운동화</NavDropdown.Item>
                 <NavDropdown.Item href="/heel">구두</NavDropdown.Item>
                 <NavDropdown.Item href="/boot">부츠/워커</NavDropdown.Item>
-                <NavDropdown.Item href="/event">이벤트</NavDropdown.Item>
+                <NavDropdown.Item
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/event/two");
+                  }}
+                >
+                  이벤트
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#special">Special</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/exer">운동화</Nav.Link>
               <Nav.Link href="/heel">구두</Nav.Link>
               <Nav.Link href="/boot">부츠/워커</Nav.Link>
-              <Nav.Link href="/event">이벤트</Nav.Link>
-              <Nav.Link href="/cart">
+              <Nav.Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/event/one");
+                }}
+              >
+                이벤트
+              </Nav.Link>
+              <Nav.Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/cart");
+                }}
+              >
                 <span className="material-symbols-outlined">shopping_cart</span>
               </Nav.Link>
             </Nav>
@@ -111,11 +148,20 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* 라우터 이용해서 Main을 사용하자
-      그냥 새로고침이 아닌 라우터로 사용 */}
+      {/* 라우터 이용해서 Main을 사용하자. 그냥 새로고침이 아닌 라우터로 사용 */}
       <Routes>
         {/* Main, detail으로 데이터 넘기기. props 사용 */}
-        <Route path="/" element={<Main shoes={shoes} />} />
+        <Route
+          path="/"
+          element={
+            <Main
+              shoes={shoes}
+              // Main에서 데이터를 받지만, App으로 데이터를 넘기는 것은 불가능하다. App이 부모이기 때문.
+              // App에서 변경함수를 만들어서 Main에 있는 데이터를 뽑아가는 구조로 만들어야한다.
+              setShoes={setShoes}
+            />
+          }
+        />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         {/* path가 변화하는 경우, "/detail/:변수" 형식으로 작성해준다.
         상품상세 페이지가 출력된다. */}
@@ -128,6 +174,9 @@ function App() {
           <Route path="one" element={<One />} />
           <Route path="two" element={<Two />} />
         </Route>
+
+        {/* 라우터로 장바구니 페이지 연결 */}
+        <Route path="/cart" element={<Cart />}></Route>
       </Routes>
       <Footer></Footer>
     </div>

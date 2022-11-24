@@ -54,6 +54,7 @@ const Text = styled.div`
 // todo 휴지통 스타일
 const Remove = styled.div`
   // 처음에는 안보이도록. 투명도 설정
+  // opacity :0 으로하면 아예 안보이는데, opacityy : 0으로 하면 희미하게 보이네..
   opacityy: 0;
 
   // 주어진 공간에 펼쳐주기
