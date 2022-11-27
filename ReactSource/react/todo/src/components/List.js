@@ -2,7 +2,9 @@
 
 import styled from "styled-components";
 import Item from "./Item";
-import Create from "./Create";
+
+// redux 밑작업
+import { useSelector } from "react-redux";
 
 const TodoListBlock = styled.div`
   flex: 1;
@@ -25,16 +27,28 @@ const TodoListBlock = styled.div`
 `;
 
 function List() {
+  // store 내용 가져오기
+  let todos = useSelector((state) => {
+    return state;
+  });
+  console.log("todos", todos.todos);
+
   return (
     <>
       <TodoListBlock>
-        {/* Item에 데이터 넘기기. props 개념 */}
+        {/* Item에 데이터 넘기기. props 개념  
         <Item text="리액트 프로젝트 구상" done={true}></Item>
         <Item text="프로젝트 개발환경 구축" done={false}></Item>
         <Item text="프로젝트 생성" done={false}></Item>
-        <Item text="기본 페이지 작성" done={false}></Item>
+        <Item text="기본 페이지 작성" done={false}></Item> */}
+        {/* store.js 로 정보 이동하면서 주석처리함.  */}
+
+        {/* map으로 store에 있는 데이터 뿌려주기 
+        map 사용에 익숙해질 것. */}
+        {todos.todos.map((todo) => (
+          <Item id={todo.id} text={todo.text} done={todo.done} key={todo.id} />
+        ))}
       </TodoListBlock>
-      <Create></Create>
     </>
   );
 }

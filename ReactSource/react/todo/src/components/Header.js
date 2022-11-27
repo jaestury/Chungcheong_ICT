@@ -45,11 +45,26 @@ const TodoHeaderBlock = styled.div`
 `;
 
 function Header() {
+  // 오늘 날짜 추출
+  const today = new Date(); // Thu Nov 24 2022 20:38:05 GMT+0900 (한국 표준시)
+  console.log(today);
+
+  // toLocaleDateString(locales, [옵션])
+  // locales : 국가에 맞춰 형식을 바꿔줌.
+  // [옵션] : 날짜 형식 스타일.
+  const dateString = today.toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const day = today.toLocaleDateString("ko-KR", { weekday: "long" });
+
   return (
     <>
       <TodoHeaderBlock>
-        <h1>2022년 11월 23일</h1>
-        <div className="day">화요일</div>
+        <h1>{dateString}</h1>
+        <div className="day">{day}</div>
         <div className="tasks-left">할 일 3개 남음</div>
         {/* 태그 안에 className=""을 써서 css 적용 */}
       </TodoHeaderBlock>

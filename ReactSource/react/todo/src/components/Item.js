@@ -3,6 +3,11 @@
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 
+// redux 사용
+import { useDispatch } from "react-redux";
+// redux 함수 가져오기
+import { removeTodo, doneToggle } from "../store";
+
 // 왼쪽 체크박스 스타일
 const CheckCircle = styled.div`
   // 네모상자
@@ -92,18 +97,30 @@ const TodoItemBlock = styled.div`
 // List 에서 주는 데이터를 props 받아서 사용할 수 있음.
 // 데이터 나눠서 받아주기
 function Item({ id, text, done }) {
+  // 함수 사용하기
+  let dispatch = useDispatch();
+
   return (
     // TodoItemBlock 안에 데이터 넣어주기.
     <TodoItemBlock>
       {/* 체크박스는 done값(완료/미처리)을 가져야하기 때문에 done과
-      완료 체크 아이콘 사용 */}
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      완료 체크 아이콘 사용 
+      CheckCircle에 onClick 기능을 사용해서 체크하면 완료처리되게 하는 기능, 
+      즉 넘어온 id 값의 done 상태 확인 후 현재 상태의 반대로 바꿔주기(참 > 거짓 과 같이) */}
+      <CheckCircle done={done} onClick={() => dispatch(doneToggle(id))}>
+        {done && <MdDone />}
+      </CheckCircle>
 
       {/* Text는 완료처리 시 색이 변경되어야 하니까 done 값을 가짐 */}
       <Text done={done}>{text}</Text>
 
-      {/* Remove는 휴지통 아이콘 사용 */}
-      <Remove>
+      {/* Remove는 휴지통 아이콘 사용 
+      onClick 으로 버튼 누를 시 삭제 기능 부여 
+      removeTodo 기능 순서
+      1. removeTodo 가 id를 store.js 에 넘김.
+      2. state.filter 실행. 갖고 있는 데이터와 일치하는 id를 찾는다.
+      일치하지 않으면 배열로 반환. 일치하면 삭제. */}
+      <Remove onClick={() => dispatch(removeTodo(id))}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>

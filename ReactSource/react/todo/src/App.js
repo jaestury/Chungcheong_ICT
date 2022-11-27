@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import Header from "./Header";
-import Main from "./Main";
-import List from "./List";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import List from "./components/List";
+import Create from "./components/Create";
 
 function App() {
   // 전체 스타일 적용
@@ -22,6 +23,7 @@ function App() {
         Hearder, List 등 넣어줌 */}
         <Header></Header>
         <List></List>
+        <Create></Create>
       </Main>
     </>
   );
